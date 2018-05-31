@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import WillesComponent from './WillesComponent/';
+import WillesComponent from './WillesComponent/WillesComponent.js';
 
 class App extends Component {
   render() {
