@@ -1,9 +1,11 @@
 import React from 'react'
 
 const willesComponent = () => {
-  return (<div>
-    
-  </div>)
+  return (
+    <div>
+      <h1>Tjena</h1>
+    </div>
+  )
 }
 
 export default willesComponent;
