@@ -3,6 +3,7 @@ import WillesComponent from './WillesComponent/WillesComponent'
 import { Route } from 'react-router-dom'
 import FetchCities from '../FetchCities/FetchCities'
 import JokeComponent from '../../JokeComponent/JokeComponent'
+import ChuckNorris from "../../ChuckNorrisJoke/ChuckNorris"
 
 class HomePage extends Component{
     render(){
@@ -15,6 +16,7 @@ class HomePage extends Component{
         <Route path="/fetch-cities" exact render={() => <FetchCities/>}/>
         <Route path="/random-dogs" exact render={() => <WillesComponent/>}/>
         <Route path="/joke-shower" exact render={() => <JokeComponent/>}/>
+        <Route path="/chuck-norris" exact render={()=> <ChuckNorris/>}/>
         </div>
 
       )
