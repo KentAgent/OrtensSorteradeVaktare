@@ -11,15 +11,12 @@ class HomePage extends Component{
     render(){
       return (
         <div>
-        <section className='HomePage'>
-          <p>Hej kompisar!</p>
-        </section>
-        <Route path="/" exact render={() => <h1>Home</h1>} />
-        <Route path="/fetch-cities" exact render={() => <FetchCities/>}/>
-        <Route path="/random-dogs" exact render={() => <WillesComponent/>}/>
-        <Route path="/joke-shower" exact render={() => <JokeComponent/>}/>
-        <Route path="/chuck-norris" exact render={()=> <ChuckNorris/>}/>
-        <Route path="/Firebase" exact render={()=> <Firebase/>}/>
+          <Route path="/" exact render={() => <h1>Home</h1>} />
+          <Route path="/fetch-cities" exact render={() => <FetchCities/>}/>
+          <Route path="/random-dogs" exact render={() => <WillesComponent/>}/>
+          <Route path="/joke-shower" exact render={() => <JokeComponent/>}/>
+          <Route path="/chuck-norris" exact render={()=> <ChuckNorris/>}/>
+          <Route path="/Firebase" exact render={()=> <Firebase/>}/>
         </div>
       )
     }
