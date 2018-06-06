@@ -31,6 +31,8 @@ class FetchCities extends Component {
                 console.log(citiesListPrinted)
             }
 
+            
+            
             this.setState({
                 citiesList: citiesListPrinted
             })
@@ -41,9 +43,28 @@ class FetchCities extends Component {
 
     render() {
         if (!this.state.citiesData) return <p>Loading...</p>
+
+        let random = null
+
+        random = (
+            <div>
+                {this.state.citiesData.map((city) => {
+                    return (
+                        <ul className="citiesList" key={city.id}>
+                            <li>{city.name}</li>
+                            <li>{city.population}</li>
+                            <button>Delete</button>
+                        </ul>
+                    )
+                })}
+            </div>
+        )
+        
         return (
             <div className="FetchCities">
                 <p>{this.state.citiesList}</p>
+                <section>{this.sortedArray}</section>
+                {random}
                 <input />
                 <button>Add City</button>
             </div>
