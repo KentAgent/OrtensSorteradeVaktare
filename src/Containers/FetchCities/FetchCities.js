@@ -44,6 +44,8 @@ class FetchCities extends Component {
         return (
             <div className="FetchCities">
                 <p>{this.state.citiesList}</p>
+                <input />
+                <button>Add City</button>
             </div>
         )
     }
