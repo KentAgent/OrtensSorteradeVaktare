@@ -31,14 +31,12 @@ class willesComponent extends React.Component {
   render(){
       return (
         <div>
-          <h1>Tjenaaaa</h1>
-          <button onClick={this.getImg}>Refresh</button>
-
-          <img className="imgBox" src={this.state.img_URL} alt="Dog img"></img>
+          <h1>Tjo Dog</h1>
+          <section><button className="refreshBtn" onClick={this.getImg}>New Dog</button></section>
+          <section><img className="imgBox" src={this.state.img_URL} alt="Dog img"></img></section>
         </div>
     )
   }
-
 }
 
 export default willesComponent;
