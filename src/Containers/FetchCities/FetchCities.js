@@ -36,7 +36,7 @@ class FetchCities extends Component {
             })
         }).catch(error => {
             console.log('There was an error: ', error)
-        })  
+        })
     }
 
     render() {
