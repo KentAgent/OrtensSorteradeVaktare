@@ -44,9 +44,9 @@ class FetchCities extends Component {
     render() {
         if (!this.state.citiesData) return <p>Loading...</p>
 
-        let random = null
+        let sortedList = null
 
-        random = (
+        sortedList = (
             <div>
                 {this.state.citiesData.map((city) => {
                     return (
@@ -62,11 +62,10 @@ class FetchCities extends Component {
         
         return (
             <div className="FetchCities">
-                <p>{this.state.citiesList}</p>
-                <section>{this.sortedArray}</section>
-                {random}
                 <input />
                 <button>Add City</button>
+                <h1>List of Cities</h1>
+                {sortedList}
             </div>
         )
     }

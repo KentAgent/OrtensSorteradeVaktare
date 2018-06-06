@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import './App.css';
-import ChuckNorris from './ChuckNorrisJoke/ChuckNorris'
-import WillesComponent from './Containers/HomePage/WillesComponent/WillesComponent.js';
-import FetchCities from './Containers/FetchCities/FetchCities'
-import HomePage from './Containers/HomePage/home'
+import HomePage from './Containers/HomePage/HomePage'
 console.log("hej");
 
 class App extends Component {
@@ -14,21 +11,20 @@ class App extends Component {
       <div className="App">
         <div>
           <header>
-            <nav>
-              <ul>
+            <nav className="Navigation">
+              <ul className="NavBar">
                 <li><a href="/">Home</a></li>
-                <li><a href="/fetch-cities">Show cities</a></li>
-                <li><a href="/random-dogs">See our dogs</a></li>
-                <li><a href="/joke-shower">Vilken rolig skoj ha ha</a></li>
+                <li><a href="/fetch-cities">Cities</a></li>
+                <li><a href="/random-dogs">Dogs</a></li>
+                <li><a href="/joke-shower">Lol</a></li>
                 <li><a href="/chuck-norris">Norris is life</a></li>
-
               </ul>
             </nav>
           </header>
         </div>
         <HomePage/>
       </div>
-        </BrowserRouter>
+      </BrowserRouter>
     );
   }
 }

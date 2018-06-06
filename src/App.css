@@ -5,6 +5,39 @@
 body {
   margin: 0;
   padding: 0;
+  margin-top: 180px;
+}
+
+.NavBar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.NavBar li {
+  display: inline-block;
+  margin: 20px;
+}
+
+.NavBar a {
+  text-decoration: none;
+  color: black;
+  text-shadow: 2px;
+  font-size: 1.3em;
+}
+
+.NavBar a:hover {
+  color: cadetblue;
+}
+
+.Navigation {
+  position: fixed;
+  top: 0;
+  background-color: lightgrey;
+  margin: 0;
+  padding: 5px;
+  box-shadow: 1px 1px 20px black;
+  width: 100%;
 }
 
 /* .App-logo {
