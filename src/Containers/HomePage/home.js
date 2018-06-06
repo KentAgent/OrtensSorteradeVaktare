@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import WillesComponent from './WillesComponent/WillesComponent'
+import WillesComponent from '../../WillesComponent/WillesComponent'
 import { Route } from 'react-router-dom'
 import FetchCities from '../FetchCities/FetchCities'
 import JokeComponent from '../../JokeComponent/JokeComponent'
