@@ -16,6 +16,7 @@ class App extends Component {
               <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/fetch-cities">Show cities</a></li>
+                <li><a href="/random-dogs">See our dogs!</a></li>
               </ul>
             </nav>
           </header>

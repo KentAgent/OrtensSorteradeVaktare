@@ -10,9 +10,9 @@ class HomePage extends Component{
         <section className='HomePage'>
           <p>Hej kompisar!</p>
         </section>
-        <WillesComponent/>
         <Route path="/" exact render={() => <h1>Home</h1>} />
         <Route path="/fetch-cities" exact render={() => <FetchCities/>}/>
+        <Route path="/random-dogs" exact render={() => <WillesComponent/>}/>
         </div>
 
       )
