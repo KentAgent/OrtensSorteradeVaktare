@@ -24,10 +24,16 @@ body {
   color: black;
   text-shadow: 2px;
   font-size: 1.3em;
+  transition: 0.3s;
 }
 
 .NavBar a:hover {
   color: cadetblue;
+  letter-spacing: 4px;
+}
+
+.NavBar a:active {
+  letter-spacing: 10px;
 }
 
 .Navigation {
