@@ -4,7 +4,6 @@ import './App.css';
 import WillesComponent from './Containers/HomePage/WillesComponent/WillesComponent.js';
 import FetchCities from './Containers/FetchCities/FetchCities'
 import HomePage from './Containers/HomePage/home'
-console.log("hej");
 
 class App extends Component {
   render() {
