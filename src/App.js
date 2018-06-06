@@ -18,6 +18,8 @@ class App extends Component {
                 <li><a href="/random-dogs">Dogs</a></li>
                 <li><a href="/joke-shower">Lol</a></li>
                 <li><a href="/chuck-norris">Norris is life</a></li>
+                <li><a href="/Firebase">Firebase</a></li>
+
               </ul>
             </nav>
           </header>
