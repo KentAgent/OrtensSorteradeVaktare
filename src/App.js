@@ -21,6 +21,7 @@ class App extends Component {
                 <li><a href="/random-dogs">See our dogs</a></li>
                 <li><a href="/joke-shower">Vilken rolig skoj ha ha</a></li>
                 <li><a href="/chuck-norris">Norris is life</a></li>
+                <li><a href="/Firebase">Firebase</a></li>
 
               </ul>
             </nav>
