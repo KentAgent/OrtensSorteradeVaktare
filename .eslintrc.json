@@ -4,9 +4,15 @@
     "es6": true,
     "browser": true
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "rules": {
     "no-console": "off",
     "react/prop-types": "off"
-  }
+  },
+  "parserOptions": {
+     "sourceType": "module"
+ }
 }

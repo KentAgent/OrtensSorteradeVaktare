@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-
-
-class ChuckNorris extends React.Component {
+class ChuckNorris extends Component {
 
   constructor(props) {
     super(props)
