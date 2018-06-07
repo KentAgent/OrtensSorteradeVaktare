@@ -1,31 +1,13 @@
 import React, {Component} from 'react'
 
-class JokeComponent extends React.Component {
+class JokeComponent extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
       lineBreak: '',
-      jokeSetup1: '',
-      jokePunchline1: '',
-      jokeSetup2: '',
-      jokePunchline2: '',
-      jokeSetup3: '',
-      jokePunchline3: '',
-      jokeSetup4: '',
-      jokePunchline4: '',
-      jokeSetup5: '',
-      jokePunchline5: '',
-      jokeSetup6: '',
-      jokePunchline6: '',
-      jokeSetup7: '',
-      jokePunchline7: '',
-      jokeSetup8: '',
-      jokePunchline8: '',
-      jokeSetup9: '',
-      jokePunchline9: '',
-      jokeSetup10: '',
-      jokePunchline10: ''
+      jokeSetup: [],
+      jokePunchline: []
     }
     this.fetchJoke = this.fetchJoke.bind(this)
     this.fetchTenJokes = this.fetchTenJokes.bind(this)
@@ -37,28 +19,13 @@ class JokeComponent extends React.Component {
       return response.json();
     }).then(result => {
       console.log(result)
+      let a = this.state.jokeSetup.slice();
+      let b = this.state.jokePunchline.slice();
+      a[0] = result.setup;
+      b[0] = result.punchline;
       this.setState({
-        lineBreak: '',
-        jokeSetup1: result.setup,
-        jokePunchline1: result.punchline,
-        jokeSetup2: '',
-        jokePunchline2: '',
-        jokeSetup3: '',
-        jokePunchline3: '',
-        jokeSetup4: '',
-        jokePunchline4: '',
-        jokeSetup5: '',
-        jokePunchline5: '',
-        jokeSetup6: '',
-        jokePunchline6: '',
-        jokeSetup7: '',
-        jokePunchline7: '',
-        jokeSetup8: '',
-        jokePunchline8: '',
-        jokeSetup9: '',
-        jokePunchline9: '',
-        jokeSetup10: '',
-        jokePunchline10: ''
+        jokeSetup: a,
+        jokePunchline: b
       })
 
     })
@@ -70,28 +37,32 @@ class JokeComponent extends React.Component {
       return response.json();
     }).then(result => {
       console.log(result)
+      let a = this.state.jokeSetup.slice();
+      let b = this.state.jokePunchline.slice();
+      a[0] = result[0].setup;
+      b[0] = result[0].punchline;
+      a[1] = result[1].setup;
+      b[1] = result[1].punchline;
+      a[2] = result[2].setup;
+      b[2] = result[2].punchline;
+      a[3] = result[3].setup;
+      b[3] = result[3].punchline;
+      a[4] = result[4].setup;
+      b[4] = result[4].punchline;
+      a[5] = result[5].setup;
+      b[5] = result[5].punchline;
+      a[6] = result[6].setup;
+      b[6] = result[6].punchline;
+      a[7] = result[7].setup;
+      b[7] = result[7].punchline;
+      a[8] = result[8].setup;
+      b[8] = result[8].punchline;
+      a[9] = result[9].setup;
+      b[9] = result[9].punchline;
       this.setState({
         lineBreak: '-----------------',
-        jokeSetup1: result[0].setup,
-        jokePunchline1: result[0].punchline,
-        jokeSetup2: result[1].setup,
-        jokePunchline2: result[1].punchline,
-        jokeSetup3: result[2].setup,
-        jokePunchline3: result[2].punchline,
-        jokeSetup4: result[3].setup,
-        jokePunchline4: result[3].punchline,
-        jokeSetup5: result[4].setup,
-        jokePunchline5: result[4].punchline,
-        jokeSetup6: result[5].setup,
-        jokePunchline6: result[5].punchline,
-        jokeSetup7: result[6].setup,
-        jokePunchline7: result[6].punchline,
-        jokeSetup8: result[7].setup,
-        jokePunchline8: result[7].punchline,
-        jokeSetup9: result[8].setup,
-        jokePunchline9: result[8].punchline,
-        jokeSetup10: result[9].setup,
-        jokePunchline10: result[9].punchline
+        jokeSetup: a,
+        jokePunchline: b
       })
 
     })
@@ -106,35 +77,35 @@ class JokeComponent extends React.Component {
     return (<div>
       <button onClick={this.fetchJoke}>Give me another one!</button>
       <button onClick={this.fetchTenJokes}>Give me another ten!</button>
-      <h1>{this.state.jokeSetup1}</h1>
-      <h1>{this.state.jokePunchline1}</h1>
+      <h1>{this.state.jokeSetup[0]}</h1>
+      <h1>{this.state.jokePunchline[0]}</h1>
       <h2>{this.state.lineBreak}</h2>
-      <h1>{this.state.jokeSetup2}</h1>
-      <h1>{this.state.jokePunchline2}</h1>
+      <h1>{this.state.jokeSetup[1]}</h1>
+      <h1>{this.state.jokePunchline[1]}</h1>
       <h2>{this.state.lineBreak}</h2>
-      <h1>{this.state.jokeSetup3}</h1>
-      <h1>{this.state.jokePunchline3}</h1>
+      <h1>{this.state.jokeSetup[2]}</h1>
+      <h1>{this.state.jokePunchline[2]}</h1>
       <h2>{this.state.lineBreak}</h2>
-      <h1>{this.state.jokeSetup4}</h1>
-      <h1>{this.state.jokePunchline4}</h1>
+      <h1>{this.state.jokeSetup[3]}</h1>
+      <h1>{this.state.jokePunchline[3]}</h1>
       <h2>{this.state.lineBreak}</h2>
-      <h1>{this.state.jokeSetup5}</h1>
-      <h1>{this.state.jokePunchline5}</h1>
+      <h1>{this.state.jokeSetup[4]}</h1>
+      <h1>{this.state.jokePunchline[4]}</h1>
       <h2>{this.state.lineBreak}</h2>
-      <h1>{this.state.jokeSetup6}</h1>
-      <h1>{this.state.jokePunchline6}</h1>
+      <h1>{this.state.jokeSetup[5]}</h1>
+      <h1>{this.state.jokePunchline[5]}</h1>
       <h2>{this.state.lineBreak}</h2>
-      <h1>{this.state.jokeSetup7}</h1>
-      <h1>{this.state.jokePunchline7}</h1>
+      <h1>{this.state.jokeSetup[6]}</h1>
+      <h1>{this.state.jokePunchline[6]}</h1>
       <h2>{this.state.lineBreak}</h2>
-      <h1>{this.state.jokeSetup8}</h1>
-      <h1>{this.state.jokePunchline8}</h1>
+      <h1>{this.state.jokeSetup[7]}</h1>
+      <h1>{this.state.jokePunchline[7]}</h1>
       <h2>{this.state.lineBreak}</h2>
-      <h1>{this.state.jokeSetup9}</h1>
-      <h1>{this.state.jokePunchline9}</h1>
+      <h1>{this.state.jokeSetup[8]}</h1>
+      <h1>{this.state.jokePunchline[8]}</h1>
       <h2>{this.state.lineBreak}</h2>
-      <h1>{this.state.jokeSetup10}</h1>
-      <h1>{this.state.jokePunchline10}</h1>
+      <h1>{this.state.jokeSetup[9]}</h1>
+      <h1>{this.state.jokePunchline[9]}</h1>
 
     </div>)
   }
