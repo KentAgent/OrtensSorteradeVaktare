@@ -1,5 +1,6 @@
 import React from 'react'
 import './WillesComponent.css'
+import DownloadLink from "react-download-link";
 
 class willesComponent extends React.Component {
 
@@ -32,7 +33,10 @@ class willesComponent extends React.Component {
       return (
         <div>
           <h1>Tjo Dog</h1>
-          <section><button className="refreshBtn" onClick={this.getImg}>New Dog</button></section>
+          <section><button className="refreshBtn" onClick={this.getImg}>New Dog</button>
+            <DownloadLink filename="myfile.txt" exportFile={() => "My cached data"}>
+              Save to disk
+            </DownloadLink></section>
           <section><img className="imgBox" src={this.state.img_URL} alt="Dog img"></img></section>
         </div>
     )
