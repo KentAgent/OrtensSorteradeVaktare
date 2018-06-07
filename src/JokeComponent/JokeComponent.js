@@ -100,7 +100,6 @@ class JokeComponent extends React.Component {
 
   componentDidMount() {
     this.fetchJoke();
-    this.fetchTenJokes();
   }
 
   render() {
