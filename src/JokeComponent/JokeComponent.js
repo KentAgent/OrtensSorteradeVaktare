@@ -21,9 +21,12 @@ class JokeComponent extends Component {
       console.log(result)
       let a = this.state.jokeSetup.slice();
       let b = this.state.jokePunchline.slice();
+      a = [];
+      b = [];
       a[0] = result.setup;
       b[0] = result.punchline;
       this.setState({
+        lineBreak: '',
         jokeSetup: a,
         jokePunchline: b
       })
