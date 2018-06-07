@@ -50,8 +50,14 @@ class FetchCities extends Component {
         
         return (
             <div className="FetchCities">
-                <input />
-                <button onClick={this.props.onFetchCities}>Add City</button>
+                <div className="AddCityDiv">
+                <section>
+                    <input type="text"/>
+                </section>
+                <section>
+                    <button onClick={this.props.onFetchCities}>Add City</button>
+                </section>
+                </div>
                 <h1>List of Cities</h1>
                 {sortedList}
             </div>

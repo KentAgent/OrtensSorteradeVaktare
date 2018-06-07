@@ -13,12 +13,12 @@ class App extends Component {
           <header>
             <nav className="Navigation">
               <ul className="NavBar">
-                <li><a href="/">Home</a></li>
+                <li id="home"><a href="/">Home</a></li>
                 <li><a href="/fetch-cities">Cities</a></li>
                 <li><a href="/random-dogs">Dogs</a></li>
                 <li><a href="/joke-shower">Lol</a></li>
                 <li><a href="/chuck-norris">Norris is life</a></li>
-                <li><a href="/Firebase">Firebase</a></li>
+                <li id="firebase"><a href="/Firebase">Firebase</a></li>
 
               </ul>
             </nav>

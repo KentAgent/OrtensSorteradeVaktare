@@ -16,10 +16,14 @@ body {
 
 .NavBar li {
   display: inline-block;
-  margin: 20px;
+  border: 1px solid black;
+  
 }
 
 .NavBar a {
+  display: inline-block;
+  margin: 0px;
+  padding: 10px;
   text-decoration: none;
   color: black;
   text-shadow: 2px;
@@ -45,6 +49,24 @@ body {
   box-shadow: 1px 1px 20px black;
   width: 100%;
   z-index: 10;
+}
+
+#home {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#firebase {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.Navigation li {
+  transition: 2s;
+}
+
+.Navigation li:hover {
+  background-color: whitesmoke;
 }
 
 /* .App-logo {
