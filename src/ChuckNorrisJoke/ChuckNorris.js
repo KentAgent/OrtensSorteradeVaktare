@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './ChuckNorris.css'
 
 class ChuckNorris extends Component {
 
@@ -30,8 +31,8 @@ class ChuckNorris extends Component {
 render() {
     return (
         <div className="FetchCities">
-            <p>{this.state.joke}</p>
-            <button onClick={this.fetchData}>Refresh</button>
+          <button className="nextChuck" onClick={this.fetchData}>Check for more awsome cool verified information about Chuck</button>
+          <p>{this.state.joke}</p>
         </div>
     )
   }
