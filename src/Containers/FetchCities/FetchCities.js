@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './FetchCities.css'
+import { connect } from 'react-redux'
 
-let citiesListPrinted = ''
+//let citiesListPrinted = ''
 
 class FetchCities extends Component {
 
@@ -9,8 +10,7 @@ class FetchCities extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            citiesData: [],
-            citiesList: ''
+            citiesData: []
         }
     }
 
@@ -23,18 +23,6 @@ class FetchCities extends Component {
             console.log(result)
             this.setState({
                 citiesData: result
-            })
-
-            let citiesArray = this.state.citiesData
-            for (let i = 0; i < citiesArray.length; i++) {
-                citiesListPrinted += citiesArray[i].name + ' ' + citiesArray[i].population + '\n'
-                console.log(citiesListPrinted)
-            }
-
-            
-            
-            this.setState({
-                citiesList: citiesListPrinted
             })
         }).catch(error => {
             console.log('There was an error: ', error)
@@ -63,7 +51,7 @@ class FetchCities extends Component {
         return (
             <div className="FetchCities">
                 <input />
-                <button>Add City</button>
+                <button onClick={this.props.onFetchCities}>Add City</button>
                 <h1>List of Cities</h1>
                 {sortedList}
             </div>
@@ -71,4 +59,17 @@ class FetchCities extends Component {
     }
 }
 
-export default FetchCities
+const mapStateToProps = state => {
+    return {
+        citiesData: state.citiesData
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchCities: () => dispatch({type: 'FETCH_CITIES'})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FetchCities)
+

@@ -44,6 +44,7 @@ body {
   padding: 5px;
   box-shadow: 1px 1px 20px black;
   width: 100%;
+  z-index: 10;
 }
 
 /* .App-logo {
