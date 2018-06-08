@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './FetchCities.css'
 import { connect } from 'react-redux'
+import AddCity from './AddCity'
 
 //let citiesListPrinted = ''
 
@@ -47,6 +48,14 @@ class FetchCities extends Component {
                 })}
             </div>
         )
+
+        const citiesItems = this.state.citiesData.map(city => (
+            <ul className="citiesList" key={city.id}>
+                <li>{city.name}</li>
+                <li>{city.population}</li>
+                <button>Delete</button>
+            </ul>
+        ))
         
         return (
             <div className="FetchCities">
@@ -55,11 +64,12 @@ class FetchCities extends Component {
                     <input type="text"/>
                 </section>
                 <section>
-                    <button onClick={this.props.onFetchCities}>Add City</button>
+                    <button id="AddCityButton" onClick={this.props.onFetchCities}>Add City</button>
                 </section>
                 </div>
+                <AddCity />
                 <h1>List of Cities</h1>
-                {sortedList}
+                {citiesItems}
             </div>
         )
     }
