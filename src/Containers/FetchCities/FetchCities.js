@@ -9,18 +9,6 @@ import { fetchCities } from '../../actions/citiesActions'
 
 class FetchCities extends Component {
 
-    // fetch('http://cities.jonkri.se')
-    //     .then(response => {
-    //         return response.json()
-    //     }).then(result => {
-    //         console.log(result)
-    //         this.setState({
-    //             citiesData: result
-    //         })
-    //     }).catch(error => {
-    //         console.log('There was an error: ', error)
-    //     })
-
     componentWillMount() {
         this.props.fetchCities()
     }
@@ -46,14 +34,6 @@ class FetchCities extends Component {
         
         return (
             <div className="FetchCities">
-                <div className="AddCityDiv">
-                <section>
-                    <input type="text"/>
-                </section>
-                <section>
-                    <button id="AddCityButton" onClick={this.props.onFetchCities}>Add City</button>
-                </section>
-                </div>
                 <AddCity />
                 <h1>List of Cities</h1>
                 {citiesItems}

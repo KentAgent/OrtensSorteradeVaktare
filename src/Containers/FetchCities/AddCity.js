@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { addCity } from '../../actions/citiesActions'
+import './AddCity.css'
 
 class AddCity extends Component {
     constructor(props) {
@@ -28,25 +29,15 @@ class AddCity extends Component {
         }
 
         this.props.addCity(city)
-
-        // fetch('http://cities.jonkri.se', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(city)
-        // })
-        // .then(response => response.json())
-        // .then(result => console.log(result))
     }
 
     render() {
         return (
-            <div>
+            <div className="AddCity">
                 <h1>Add City</h1>
                 <form onSubmit={this.onSubmit}>
                     <div>
-                        <label>CityName: </label><br />
+                        <label>City Name: </label><br />
                         <input type="text" name="name" onChange={this.onChange} value={this.state.cityName}/>
                     </div>
                     <div>

@@ -15,7 +15,8 @@ export default function(state = initialState, action) {
         case NEW_CITY:
             return {
                 ...state,
-                item: action.payload
+                item: action.payload,
+                items: action.payload
             }
         default:
         return state
