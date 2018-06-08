@@ -1,55 +1,42 @@
 import React, { Component } from 'react'
 import './FetchCities.css'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import AddCity from './AddCity'
+import { fetchCities } from '../../actions/citiesActions'
 
 //let citiesListPrinted = ''
 
 class FetchCities extends Component {
 
-    // Initial state when loading app
-    constructor(props) {
-        super(props)
-        this.state = {
-            citiesData: []
+    // fetch('http://cities.jonkri.se')
+    //     .then(response => {
+    //         return response.json()
+    //     }).then(result => {
+    //         console.log(result)
+    //         this.setState({
+    //             citiesData: result
+    //         })
+    //     }).catch(error => {
+    //         console.log('There was an error: ', error)
+    //     })
+
+    componentWillMount() {
+        this.props.fetchCities()
+    }
+
+    // When component recieves new property, this will run
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.newCity) {
+            this.props.cities.unshift(nextProps.newCity)
         }
     }
 
-    // componentDidMount is called after the component has been rendered into the DOM
-    componentDidMount() {
-        fetch('http://cities.jonkri.se')
-        .then(response => {
-            return response.json()
-        }).then(result => {
-            console.log(result)
-            this.setState({
-                citiesData: result
-            })
-        }).catch(error => {
-            console.log('There was an error: ', error)
-        })
-    }
-
     render() {
-        if (!this.state.citiesData) return <p>Loading...</p>
 
-        let sortedList = null
+        
 
-        sortedList = (
-            <div>
-                {this.state.citiesData.map((city) => {
-                    return (
-                        <ul className="citiesList" key={city.id}>
-                            <li>{city.name}</li>
-                            <li>{city.population}</li>
-                            <button>Delete</button>
-                        </ul>
-                    )
-                })}
-            </div>
-        )
-
-        const citiesItems = this.state.citiesData.map(city => (
+        const citiesItems = this.props.cities.map(city => (
             <ul className="citiesList" key={city.id}>
                 <li>{city.name}</li>
                 <li>{city.population}</li>
@@ -75,17 +62,22 @@ class FetchCities extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        citiesData: state.citiesData
-    }
+FetchCities.PropTypes = {
+    fetchCities: PropTypes.func.isRequired,
+    cities: PropTypes.array.isRequired,
+    newCity: PropTypes.object
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onFetchCities: () => dispatch({type: 'FETCH_CITIES'})
-    }
-}
+const mapStateToProps = state => ({
+    cities: state.cities.items,
+    newCity: state.cities.item
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(FetchCities)
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         onFetchCities: () => dispatch({type: 'FETCH_CITIES'})
+//     }
+// }
+
+export default connect(mapStateToProps, {fetchCities})(FetchCities)
 

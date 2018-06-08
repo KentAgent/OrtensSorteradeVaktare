@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { addCity } from '../../actions/citiesActions'
 
 class AddCity extends Component {
     constructor(props) {
@@ -24,15 +27,17 @@ class AddCity extends Component {
             population: this.state.population
         }
 
-        fetch('http://cities.jonkri.se', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(city)
-        })
-        .then(response => response.json())
-        .then(result => console.log(result))
+        this.props.addCity(city)
+
+        // fetch('http://cities.jonkri.se', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(city)
+        // })
+        // .then(response => response.json())
+        // .then(result => console.log(result))
     }
 
     render() {
@@ -56,4 +61,8 @@ class AddCity extends Component {
     }
 }
 
-export default AddCity
+AddCity.PropTypes = {
+    addCity: PropTypes.func.isRequired
+}
+
+export default connect(null, { addCity })(AddCity)
