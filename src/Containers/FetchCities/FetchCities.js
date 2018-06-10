@@ -22,7 +22,7 @@ class FetchCities extends Component {
 
     render() {
 
-        
+
 
         const citiesItems = this.props.cities.map(city => (
             <ul className="citiesList" key={city.id}>
@@ -31,7 +31,7 @@ class FetchCities extends Component {
                 <button>Delete</button>
             </ul>
         ))
-        
+
         return (
             <div className="FetchCities">
                 <AddCity />
@@ -53,11 +53,4 @@ const mapStateToProps = state => ({
     newCity: state.cities.item
 })
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onFetchCities: () => dispatch({type: 'FETCH_CITIES'})
-//     }
-// }
-
 export default connect(mapStateToProps, {fetchCities})(FetchCities)
-
