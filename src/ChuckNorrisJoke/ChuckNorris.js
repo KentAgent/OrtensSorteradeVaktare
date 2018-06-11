@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './ChuckNorris.css'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchCategories } from '../actions/norrisActions'
+import { fetchCategories, fetchChuckJoke } from '../actions/norrisActions'
 
 class ChuckNorris extends Component {
 
@@ -65,12 +65,13 @@ class ChuckNorris extends Component {
   //       });
   // }
 
+
 render() {
 
 
 
   const categoryItems = this.props.categories.map(category => (
-      <ul className="categoryList" key={category.id}>
+      <ul className="categoryList" key={category}>
           <li>{category}</li>
       </ul>
   ))
@@ -80,7 +81,7 @@ render() {
     return (
         <div className="FetchCities">
           <div>
-            <button className="nextChuck" onClick={this.fetchData}>Check for more awsome cool verified information about Chuck</button>
+            <button className="nextChuck" onClick={this.props.fetchChuckJoke}>Check for more awsome cool verified information about Chuck</button>
           </div>
           <div>
             <input id ='firstName' placeholder="Förnamn"></input>
@@ -93,7 +94,8 @@ render() {
             <button className="showCategories" onClick={this.props.fetchCategories}>Show categories for jokes</button>
           </div>
           {categoryItems}
-            <p></p>
+          {console.log(this.props.chuckJoke)}
+            <p>{this.props.chuckJoke}</p>
         </div>
     )
   }
@@ -101,13 +103,17 @@ render() {
 }
 
 
-ChuckNorris.PropTypes = {
-    fetchCategories: PropTypes.func.isRequired,
-    categories: PropTypes.object.isRequired
-}
+// ChuckNorris.PropTypes = {
+//     fetchCategories: PropTypes.func.isRequired,
+//     categories: PropTypes.object.isRequired,
+//
+//     fetchChuckJoke: PropTypes.func.isRequired,
+//     chuckJoke: PropTypes.string.isRequired
+// }
 
 const mapStateToProps = state => ({
-    categories: state.categories.items
+    categories: state.categories.categories,
+    chuckJoke: state.categories.joke
 })
 
-export default connect(mapStateToProps, {fetchCategories})(ChuckNorris)
+export default connect(mapStateToProps, {fetchCategories, fetchChuckJoke})(ChuckNorris)

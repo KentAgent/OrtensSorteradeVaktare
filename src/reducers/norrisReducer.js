@@ -1,16 +1,27 @@
-import { FETCH_CATEGORIES } from '../actions/types'
+import { FETCH_CATEGORIES, FETCH_CHUCKJOKE, FETCH_SOMEONEELSEJOKE } from '../actions/types'
 
 const initialState = {
-    items: []
+    joke: '',
+    categories: []
 }
 
 export default function(state = initialState, action) {
     switch (action.type) {
-        case FETCH_CATEGORIES:
-            return {
-                ...state,
-                items: action.payload.value
-            }
+      case FETCH_CHUCKJOKE:
+          return {
+              ...state,
+              joke: action.payload.value.joke
+          }
+      case FETCH_SOMEONEELSEJOKE:
+          return {
+
+          }
+      case FETCH_CATEGORIES:
+      console.log('action payload', action.payload);
+          return {
+              ...state,
+              categories: action.payload.value
+          }
         default:
         return state
     }
