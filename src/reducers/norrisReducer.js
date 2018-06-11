@@ -8,20 +8,21 @@ const initialState = {
 export default function(state = initialState, action) {
     switch (action.type) {
       case FETCH_CHUCKJOKE:
-          return {
-              ...state,
-              joke: action.payload.value.joke
-          }
+        return {
+          ...state,
+          joke: action.payload.value.joke
+        }
       case FETCH_SOMEONEELSEJOKE:
-          return {
-
-          }
+        return {
+          ...state,
+          joke: action.payload.value.joke
+        }
       case FETCH_CATEGORIES:
-      console.log('action payload', action.payload);
-          return {
-              ...state,
-              categories: action.payload.value
-          }
+      console.log('action payload categories', action.payload);
+        return {
+            ...state,
+            categories: action.payload.value
+        }
         default:
         return state
     }

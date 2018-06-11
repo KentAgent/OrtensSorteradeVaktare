@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './ChuckNorris.css'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchCategories, fetchChuckJoke } from '../actions/norrisActions'
+import { fetchCategories, fetchChuckJoke, fetchSomeOneElsesData } from '../actions/norrisActions'
 
 class ChuckNorris extends Component {
 
@@ -88,7 +88,7 @@ render() {
             <input id = 'lastName' placeholder="Efternamn"></input>
           </div>
           <div>
-            <button className="nextSomeOneElse" onClick={this.fetchSomeOneElsesData}>Check for more awsome cool verified information about someone else</button>
+            <button className="nextSomeOneElse" onClick={this.props.fetchSomeOneElsesData}>Check for more awsome cool verified information about someone else</button>
           </div>
           <div>
             <button className="showCategories" onClick={this.props.fetchCategories}>Show categories for jokes</button>
@@ -103,17 +103,20 @@ render() {
 }
 
 
-// ChuckNorris.PropTypes = {
-//     fetchCategories: PropTypes.func.isRequired,
-//     categories: PropTypes.object.isRequired,
-//
-//     fetchChuckJoke: PropTypes.func.isRequired,
-//     chuckJoke: PropTypes.string.isRequired
-// }
+ChuckNorris.PropTypes = {
+    fetchCategories: PropTypes.func.isRequired,
+    categories: PropTypes.object.isRequired,
+
+    fetchChuckJoke: PropTypes.func.isRequired,
+    chuckJoke: PropTypes.string.isRequired,
+
+    fetchSomeOneElsesData: PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => ({
     categories: state.categories.categories,
-    chuckJoke: state.categories.joke
+    chuckJoke: state.categories.joke,
+    //someOneElseJoke: state.categories.someOneElseJoke
 })
 
-export default connect(mapStateToProps, {fetchCategories, fetchChuckJoke})(ChuckNorris)
+export default connect(mapStateToProps, {fetchCategories, fetchChuckJoke, fetchSomeOneElsesData})(ChuckNorris)
