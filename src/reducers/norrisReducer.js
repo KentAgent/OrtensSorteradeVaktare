@@ -10,7 +10,8 @@ export default function(state = initialState, action) {
       case FETCH_CHUCKJOKE:
         return {
           ...state,
-          joke: action.payload.value.joke
+          joke: action.payload.value.joke,
+          categories: []
         }
       case FETCH_SOMEONEELSEJOKE:
         return {
@@ -21,7 +22,8 @@ export default function(state = initialState, action) {
       console.log('action payload categories', action.payload);
         return {
             ...state,
-            categories: action.payload.value
+            categories: action.payload.value,
+            joke: ''
         }
         default:
         return state
