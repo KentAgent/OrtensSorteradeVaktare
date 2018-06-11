@@ -1,4 +1,4 @@
-import { FETCH_CITIES, NEW_CITY } from './types'
+import { FETCH_CITIES, NEW_CITY, REMOVE_CITY } from './types'
 
 // Thunk middleware allows us to call the dispatch function directly so we can make an asynchronus request
 export const fetchCities = () => dispatch => {
@@ -24,5 +24,22 @@ export const addCity = cityData => dispatch => {
             type: NEW_CITY,
             payload: result
         })
+    )
+}
+
+export const removeCity = id => dispatch => {
+    console.log('removeCity executed')
+    //console.log('removeCity id link: ' + 'http://cities.jonkri.se/' + String(id))
+    fetch('http://cities.jonkri.se/' + String(id), {
+            method: 'DELETE'
+        })
+        .then(response => {
+            console.log(response)
+            return response.json()
+        })
+        .then(result => dispatch({
+            type: REMOVE_CITY,
+            payload: result
+        }).catch(error => console.log('There was an error: ', error))
     )
 }

@@ -3,9 +3,7 @@ import './FetchCities.css'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import AddCity from './AddCity'
-import { fetchCities } from '../../actions/citiesActions'
-
-//let citiesListPrinted = ''
+import { fetchCities, removeCity } from '../../actions/citiesActions'
 
 class FetchCities extends Component {
 
@@ -15,20 +13,35 @@ class FetchCities extends Component {
 
     // When component recieves new property, this will run
     componentWillReceiveProps(nextProps) {
+        console.log(nextProps.newCity)
         if (nextProps.newCity) {
             this.props.cities.unshift(nextProps.newCity)
         }
     }
 
+    // componentDidUpdate(removedProps) {
+    //     const cities = [...this.props.cities]
+    //     if (removedProps.removedCity) {
+    //         cities.splice(removedProps, 1)
+    //         this.props.cities = cities
+    //     }
+    // }
+
+    // deleteCityHandler(removedProps) {
+    //     const cities = [...this.props.cities]
+    //     if (removedProps.removedCity) {
+    //         cities.splice(removedProps, 1)
+    //         this.props.cities = cities
+    //     }
+    // }
+
     render() {
-
-
-
         const citiesItems = this.props.cities.map(city => (
             <ul className="citiesList" key={city.id}>
                 <li>{city.name}</li>
                 <li>{city.population}</li>
-                <button>Delete</button>
+                <button id="editCityButton">Edit</button>
+                <button id="removeCityButton" onClick={() => this.props.removeCity(city.id)}>Delete</button>
             </ul>
         ))
 
@@ -42,10 +55,12 @@ class FetchCities extends Component {
     }
 }
 
-FetchCities.PropTypes = {
+FetchCities.propTypes = {
     fetchCities: PropTypes.func.isRequired,
     cities: PropTypes.array.isRequired,
-    newCity: PropTypes.object
+    newCity: PropTypes.object,
+    removeCity: PropTypes.func.isRequired,
+    removedCity: PropTypes.object
 }
 
 const mapStateToProps = state => ({
@@ -53,4 +68,4 @@ const mapStateToProps = state => ({
     newCity: state.cities.item
 })
 
-export default connect(mapStateToProps, {fetchCities})(FetchCities)
+export default connect(mapStateToProps, {fetchCities, removeCity})(FetchCities)

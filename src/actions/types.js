@@ -1,6 +1,7 @@
 //Cities Actions
 export const FETCH_CITIES = 'FETCH_CITIES'
 export const NEW_CITY = 'NEW_CITY'
+export const REMOVE_CITY = 'REMOVE_CITY'
 //Norris Actions
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES'
 export const FETCH_CHUCKJOKE = 'FETCH_CHUCKJOKE'

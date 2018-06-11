@@ -33,10 +33,15 @@ ul {
     border: 2px solid black;
     border-radius: 10px;
     padding: 5px;
+    margin: 5px;
     width: 30%;
     transition: 0.5s;
 }
 
-.citiesList button:hover {
+#editCityButton:hover {
+    background-color: lightgreen;
+}
+
+#removeCityButton:hover {
     background-color: lightcoral;
 }
