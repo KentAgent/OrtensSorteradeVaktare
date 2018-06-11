@@ -18,6 +18,7 @@ class HomePage extends Component{
           <Route path="/joke-shower" exact render={() => <JokeComponent/>}/>
           <Route path="/chuck-norris" exact render={()=> <ChuckNorris/>}/>
           <Route path="/Firebase" exact render={()=> <Firebase/>}/>
+          
         </div>
       )
     }

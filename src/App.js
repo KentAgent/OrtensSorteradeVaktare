@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Link} from 'react-router-dom';
 import './App.css';
 import HomePage from './Containers/HomePage/HomePage'
 
@@ -12,13 +12,12 @@ class App extends Component {
           <header>
             <nav className="Navigation">
               <ul className="NavBar">
-                <li id="home"><a href="/">Home</a></li>
-                <li><a href="/fetch-cities">Cities</a></li>
-                <li><a href="/random-dogs">Dogs</a></li>
-                <li><a href="/joke-shower">Lol</a></li>
-                <li><a href="/chuck-norris">Norris is life</a></li>
-                <li id="firebase"><a href="/Firebase">Firebase</a></li>
-
+                <li id ="home"><Link to="/">Home</Link></li>
+                <li><Link to="/fetch-cities">Cities</Link></li>
+                <li><Link to="/random-dogs">Dogs</Link></li>
+                <li><Link to="/joke-shower">Lol</Link></li>
+                <li><Link to="/chuck-norris">Norris is life</Link></li>
+                <li id="firebase"><Link to="/firebase">Firebase</Link></li>
               </ul>
             </nav>
           </header>

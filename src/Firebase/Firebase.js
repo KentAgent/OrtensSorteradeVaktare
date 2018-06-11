@@ -14,27 +14,51 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-function writeUserData(userId, name, email) {
- firebase.database().ref('users/' + userId).set({
-   username: name,
-   email: email
- });
-}
 
-writeUserData(123,'Robban','Kamo');
+
 
 
 
 class Firebase extends React.Component{
 
 
+  constructor (props){
+      super(props);
+      this.readData();
+  }
 
-  // writeUserData('1231', 'robin', 'bror');
+  readData(){
+    var mydb = firebase.database().ref('Wall');
+    mydb.on('value', function(snapshot){
+      console.log(snapshot.val());
+    })
+}
+
+   writeOnOurWall(){
+      var name = document.getElementById('firstName').value;
+      var message = document.getElementById('lastName').value
+      console.log(name,message);
+      firebase.database().ref('Wall/').set({
+      username: name,
+      message: message
+
+    });
+  }
+
 
    render(){
        return (
          <div>
            <h1>Tjena</h1>
+           <h2>Write on our wall!</h2>
+           <div>
+          <p>our wall</p>
+           </div>
+           <div>
+             <input id ='firstName' placeholder="Förnamn"></input>
+             <input id = 'lastName' placeholder="Medelande"></input>
+             <button onClick={this.writeOnOurWall}>Sign</button>
+           </div>
          </div>
      );
    }
