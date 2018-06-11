@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import WillesComponent from '../../WillesComponent/WillesComponent'
 import { Route } from 'react-router-dom'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import FetchCities from '../FetchCities/FetchCities'
 import Firebase from '../../Firebase/Firebase'
 import JokeComponent from '../../JokeComponent/JokeComponent'
@@ -18,6 +18,7 @@ class HomePage extends Component{
           <Route path="/joke-shower" exact render={() => <JokeComponent/>}/>
           <Route path="/chuck-norris" exact render={()=> <ChuckNorris/>}/>
           <Route path="/Firebase" exact render={()=> <Firebase/>}/>
+          
         </div>
       )
     }

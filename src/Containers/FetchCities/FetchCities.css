@@ -38,16 +38,5 @@ ul {
 }
 
 .citiesList button:hover {
-    background-color: lightgreen;
-}
-
-
-
-.AddCityDiv input {
-    border: 2px solid black;
-    border-radius: 4px;
-    width: 20%;
-    height: 30px;
-    text-align: center;
-    font-size: 15px;
+    background-color: lightcoral;
 }
