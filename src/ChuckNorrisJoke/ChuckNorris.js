@@ -95,7 +95,7 @@ render() {
           </div>
           {categoryItems}
           {console.log(this.props.chuckJoke)}
-            <p>{this.props.chuckJoke}</p>
+            <p dangerouslySetInnerHTML={{ __html: this.props.chuckJoke }}></p>
         </div>
     )
   }
