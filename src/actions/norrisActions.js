@@ -34,10 +34,3 @@ export const fetchSomeOneElsesData = () =>  dispatch => {
     })
   )
 }
-
-    //   {
-    //   console.log(result.value.joke)
-    //   this.setState({
-    //     joke: result.value.joke
-    //   })
-    //  });

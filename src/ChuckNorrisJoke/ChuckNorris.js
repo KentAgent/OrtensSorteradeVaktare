@@ -114,8 +114,8 @@ ChuckNorris.PropTypes = {
 }
 
 const mapStateToProps = state => ({
-    categories: state.categories.categories,
-    chuckJoke: state.categories.joke,
+    categories: state.chuckReducer.categories,
+    chuckJoke: state.chuckReducer.joke,
     //someOneElseJoke: state.categories.someOneElseJoke
 })
 
