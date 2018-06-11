@@ -1,6 +1,17 @@
 import React from 'react'
 import './WillesComponent.css'
 import DownloadLink from "react-download-link";
+import LightBox from "./LightboxComponent"
+
+import Dog1 from './dog1.jpeg'
+import Dog2 from './dog2.jpg'
+import Dog3 from './dog3.jpg'
+var Dogg = require('./dog2.jpg')
+
+
+
+
+console.log(Dog2);
 
 class willesComponent extends React.Component {
 
@@ -11,25 +22,41 @@ class willesComponent extends React.Component {
     })
     .then(result =>{
       console.log(result);
-      this.setState ({
-        img_URL : result.message
-      })
-    })
-  }
+      var newImageArray = this.state.imagesArray;
+      var img = result.message
 
-  constructor(props){
+      newImageArray.push(img);
+      console.log(newImageArray);
+    this.setState ({
+      img_URL : result.message,
+
+      imagesArray : newImageArray
+    })
+  })
+}
+
+constructor(props){
     super(props);
     this.state = {
-      img_URL : ''
+      img_URL : '',
+      imagesArray : [Dog1, Dog2, Dog3]
     }
-    this.getImg = this.getImg.bind(this)
+    this.getImg = this.getImg.bind(this);
+    this.thumbNailClicked = this.thumbNailClicked.bind(this);
   }
 
   componentDidMount(){
     this.getImg();
   }
 
+  thumbNailClicked(e){
+    console.log(e.target);
+  }
+
   render(){
+    const imgThumbNails = this.state.imagesArray.map(img => (
+        <img src={img} style={{width: 50, height: 50}} key={img} onClick={this.thumbNailClicked}/>
+    ))
       return (
         <div>
           <h1>Tjo Dog</h1>
@@ -38,6 +65,8 @@ class willesComponent extends React.Component {
               Save to disk
             </DownloadLink></section>
           <section><img className="imgBox" src={this.state.img_URL} alt="Dog img"></img></section>
+          <div>{imgThumbNails}</div>
+          <div><LightBox images={this.state.imagesArray} /></div>
         </div>
     )
   }
