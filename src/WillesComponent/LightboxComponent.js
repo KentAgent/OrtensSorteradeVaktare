@@ -3,10 +3,6 @@ import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 
 
-
-
-
-
 export default class LightboxComponent extends Component {
   constructor(props) {
     super(props);
