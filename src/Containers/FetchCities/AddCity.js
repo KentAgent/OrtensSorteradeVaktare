@@ -37,11 +37,11 @@ class AddCity extends Component {
                 <h1>Add City</h1>
                 <form onSubmit={this.onSubmit}>
                     <div>
-                        <label>City Name: </label><br />
+                        <label>City Name:</label><br />
                         <input type="text" name="name" onChange={this.onChange} value={this.state.cityName}/>
                     </div>
                     <div>
-                        <label>Population: </label><br />
+                        <label>Population:</label><br />
                         <input type="text" name="population" onChange={this.onChange} value={this.state.population}/>
                     </div>
                     <br />
@@ -52,7 +52,7 @@ class AddCity extends Component {
     }
 }
 
-AddCity.PropTypes = {
+AddCity.propTypes = {
     addCity: PropTypes.func.isRequired
 }
 
