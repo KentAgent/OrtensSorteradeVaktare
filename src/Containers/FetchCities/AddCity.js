@@ -29,6 +29,11 @@ class AddCity extends Component {
         }
 
         this.props.addCity(city)
+
+        this.setState({
+            name: '',
+            population: ''
+        })
     }
 
     render() {
@@ -38,7 +43,7 @@ class AddCity extends Component {
                 <form onSubmit={this.onSubmit}>
                     <div>
                         <label>City Name:</label><br />
-                        <input type="text" name="name" onChange={this.onChange} value={this.state.cityName}/>
+                        <input type="text" name="name" onChange={this.onChange} value={this.state.name}/>
                     </div>
                     <div>
                         <label>Population:</label><br />
