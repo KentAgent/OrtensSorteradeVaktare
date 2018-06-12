@@ -71,10 +71,10 @@ render() {
 
   const categoryItems = this.props.categories.map(category => (
       <ul className="categoryList" key={category}>
-          <li>{category}</li>
-          <button onClick={() => this.props.fetchChuckJokeWithCategory(category)}>Fetch Chuck info on category</button>
+          <button id="categoryButton" onClick={() => this.props.fetchChuckJokeWithCategory(category)}>{category}</button>
       </ul>
   ))
+//          <li>{category}</li>
 
 //          <button onClick={this.props.fetchCategories}>Fetch Chuck info on category</button>
 
@@ -88,8 +88,8 @@ render() {
             <button className="nextChuck" onClick={this.props.fetchChuckJoke}>Check for more awsome cool verified information about Chuck</button>
           </div>
           <div>
-            <input id ='firstName' placeholder="Förnamn"></input>
-            <input id = 'lastName' placeholder="Efternamn"></input>
+            <input id ="firstName" placeholder="Förnamn"></input>
+            <input id = "lastName" placeholder="Efternamn"></input>
           </div>
           <div>
             <button className="nextSomeOneElse" onClick={this.props.fetchSomeOneElsesData}>Check for more awsome cool verified information about someone else</button>
@@ -97,7 +97,9 @@ render() {
           <div>
             <button className="showCategories" onClick={this.props.fetchCategories}>Show categories for jokes</button>
           </div>
-          {categoryItems}
+          <div id="catgegoryContainer">
+            {categoryItems}
+          </div>
           {console.log(this.props.chuckJoke)}
             <p dangerouslySetInnerHTML={{ __html: this.props.chuckJoke }}></p>
         </div>
