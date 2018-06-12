@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './ChuckNorris.css'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchCategories, fetchChuckJoke, fetchSomeOneElsesData } from '../actions/norrisActions'
+import { fetchCategories, fetchChuckJoke, fetchSomeOneElsesData, fetchChuckJokeWithCategory } from '../actions/norrisActions'
 
 class ChuckNorris extends Component {
 
@@ -73,9 +73,11 @@ render() {
   const categoryItems = this.props.categories.map(category => (
       <ul className="categoryList" key={category}>
           <li>{category}</li>
+          <button onClick={() => this.props.fetchChuckJokeWithCategory(category)}>Fetch Chuck info on category</button>
       </ul>
   ))
 
+//          <button onClick={this.props.fetchCategories}>Fetch Chuck info on category</button>
 
 
     return (
@@ -103,14 +105,15 @@ render() {
 }
 
 
-ChuckNorris.PropTypes = {
+ChuckNorris.propTypes = {
     fetchCategories: PropTypes.func.isRequired,
-    categories: PropTypes.object.isRequired,
+    categories: PropTypes.array.isRequired,
 
     fetchChuckJoke: PropTypes.func.isRequired,
     chuckJoke: PropTypes.string.isRequired,
 
-    fetchSomeOneElsesData: PropTypes.func.isRequired
+    fetchSomeOneElsesData: PropTypes.func.isRequired,
+    fetchChuckJokeWithCategory: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -119,4 +122,4 @@ const mapStateToProps = state => ({
     //someOneElseJoke: state.categories.someOneElseJoke
 })
 
-export default connect(mapStateToProps, {fetchCategories, fetchChuckJoke, fetchSomeOneElsesData})(ChuckNorris)
+export default connect(mapStateToProps, {fetchCategories, fetchChuckJoke, fetchSomeOneElsesData, fetchChuckJokeWithCategory})(ChuckNorris)
