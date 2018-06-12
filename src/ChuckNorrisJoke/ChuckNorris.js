@@ -69,7 +69,6 @@ class ChuckNorris extends Component {
 render() {
 
 
-
   const categoryItems = this.props.categories.map(category => (
       <ul className="categoryList" key={category}>
           <li>{category}</li>
@@ -82,6 +81,9 @@ render() {
 
     return (
         <div className="FetchCities">
+          <div>
+            <img src={require('./chucknorris_logo.png')}></img>
+          </div>
           <div>
             <button className="nextChuck" onClick={this.props.fetchChuckJoke}>Check for more awsome cool verified information about Chuck</button>
           </div>
