@@ -9,7 +9,8 @@ export default function(state = initialState, action) {
 
     case FETCH_DOG:
       return {}
-
+    default:
+      return state
 
   }
 }
