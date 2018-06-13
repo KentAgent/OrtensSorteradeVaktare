@@ -1,8 +1,9 @@
 import React from 'react'
 import './WillesComponent.css'
 import Lightbox from "./LightboxComponent"
-
 import FileSaver from 'file-saver'
+
+import {fetchDog, downloadDog, dogThumbNailClicked} from '../actions/dogActions'
 
 import Dog1 from './dog1.jpeg'
 import Dog2 from './dog2.jpg'
