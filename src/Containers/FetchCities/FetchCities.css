@@ -22,6 +22,26 @@ ul {
     transition: 0.3s;
 }
 
+.citiesList input {
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 90%;
+    height: 15px;
+    margin: 2px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.citiesList label {
+    font-size: 10px;
+    width: 100%;
+}
+
+.EditInput {
+    float: left;
+    width: 50%;
+}
+
 .citiesList:hover {
     box-shadow: 0.3px 0.3px 20px;
     transform: scale(1.04);

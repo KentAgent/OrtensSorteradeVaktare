@@ -42,6 +42,24 @@ export const removeCity = id => dispatch => {
     )
 }
 
+// export const editCity = (id, cityData) => dispatch => {
+//     fetch('http://cities.jonkri.se/' + String(id), {
+//         headers: {
+//             'content-type': 'application/json'
+//         },
+//         body: JSON.stringify(cityData),
+//         method: 'PUT'
+//     })
+//     .then(response => {
+//         console.log('Logged Response editCity: ', response)
+//         response.json()
+//     })
+//     .then(result => dispatch({
+//         type: EDIT_CITY,
+//         payload: result
+//     }))
+// }
+
 export const editCity = (id, cityData) => dispatch => {
     fetch('http://cities.jonkri.se/' + String(id), {
         headers: {
@@ -50,9 +68,11 @@ export const editCity = (id, cityData) => dispatch => {
         body: JSON.stringify(cityData),
         method: 'PUT'
     })
-    .then(response => response.json())
-    .then(result => dispatch({
-        type: EDIT_CITY,
-        payload: result
-    }))
+    .then(() => fetch('http://cities.jonkri.se')
+        .then(response => response.json())
+        .then(result => dispatch({
+            type: EDIT_CITY,
+            payload: result
+        }))
+    )
 }
