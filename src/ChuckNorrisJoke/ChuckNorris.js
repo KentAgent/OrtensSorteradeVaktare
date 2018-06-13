@@ -10,6 +10,10 @@ class ChuckNorris extends Component {
   //   this.props.fetchCategories()
   // }
   //
+
+          //3:e parts bibliotek nodejs npm install
+          //visa förståelse för ajax i text
+
   // constructor(props) {
   //   super(props)
   //   this.state = {
@@ -85,23 +89,23 @@ render() {
             <img src={require('./chucknorris_logo.png')}></img>
           </div>
           <div>
-            <button className="nextChuck" onClick={this.props.fetchChuckJoke}>Check for more awsome cool verified information about Chuck</button>
+            <button className="chuckButton" onClick={this.props.fetchChuckJoke}>Check for more awsome cool verified information about Chuck</button>
           </div>
           <div>
             <input id ="firstName" placeholder="Förnamn"></input>
             <input id = "lastName" placeholder="Efternamn"></input>
           </div>
           <div>
-            <button className="nextSomeOneElse" onClick={this.props.fetchSomeOneElsesData}>Check for more awsome cool verified information about someone else</button>
+            <button className="chuckButton" onClick={this.props.fetchSomeOneElsesData}>Check for more awsome cool verified information about someone else</button>
           </div>
           <div>
-            <button className="showCategories" onClick={this.props.fetchCategories}>Show categories for jokes</button>
+            <button className="chuckButton" onClick={this.props.fetchCategories}>Show categories for jokes</button>
           </div>
+          <p dangerouslySetInnerHTML={{ __html: this.props.chuckJoke }}></p>
           <div id="catgegoryContainer">
             {categoryItems}
           </div>
           {console.log(this.props.chuckJoke)}
-            <p dangerouslySetInnerHTML={{ __html: this.props.chuckJoke }}></p>
         </div>
     )
   }

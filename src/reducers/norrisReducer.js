@@ -23,14 +23,12 @@ export default function(state = initialState, action) {
         return {
             ...state,
             categories: action.payload,
-            joke: ''
         }
         case FETCH_CHUCKJOKEWITHCATEGORY:
         console.log('FETCH_CHUCKJOKEWITHCATEGORY', action.payload)
           return {
             ...state,
             joke: action.payload.value,
-            categories: []
           }
         default:
         return state

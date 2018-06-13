@@ -1,19 +1,53 @@
 #catgegoryContainer {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 #categoryButton {
   background-color: orange;
-  transition: transform 1s;
   box-shadow: 0.3px 0.3px 1px;
   border: 2px solid black;
   border-radius: 10px;
   padding: 5px;
   margin: 5px;
-  width: 80%;
+  width:100%;
+  height: 5em;
   transition: 0.5s;
+}
+
+#categoryButton:hover {
+  transform: scale(1.2);
+  box-shadow: 0.3px 0.3px 20px;
 
 }
-#categoryButton:hover {
-  transform: rotate(36deg);
+
+.chuckButton {
+  background-color: orange;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  width:40%;
+  height: 5em;
+  transition: 0.5s;
+}
+.chuckButton:hover {
+  transform: scale(1.2);
+  box-shadow: 0.3px 0.3px 20px;
+}
+
+.input {
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 15%;
+  height: 30px;
+  text-align: center;
+  font-size: 15px;
+}
+.FetchCities input {
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 15%;
+  height: 30px;
+  text-align: center;
+  font-size: 15px;
 }
