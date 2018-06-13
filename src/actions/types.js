@@ -14,3 +14,5 @@ export const FETCH_TENJOKES = 'FETCH_TENJOKES'
 
 //Dog actions
 export const FETCH_DOG = 'FETCH_DOG'
+export const DOWNLOAD_DOG = 'DOWNLOAD_DOG'
+export const CLICK_THUMBNAIL = 'CLICK_THUMBNAIL'
