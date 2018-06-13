@@ -11,7 +11,7 @@ class ChuckNorris extends Component {
   // }
   //
 
-          //3:e parts bibliotek nodejs npm install
+          //3:e parts bibliotek nodejs npm install -----------> axios
           //visa förståelse för ajax i text
 
   // constructor(props) {

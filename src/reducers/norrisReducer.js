@@ -10,25 +10,25 @@ export default function(state = initialState, action) {
       case FETCH_CHUCKJOKE:
         return {
           ...state,
-          joke: action.payload.value.joke,
+          joke: action.payload.data.value.joke,
           categories: []
         }
       case FETCH_SOMEONEELSEJOKE:
         return {
           ...state,
-          joke: action.payload.value.joke
+          joke: action.payload.data.value.joke
         }
       case FETCH_CATEGORIES:
       console.log('action payload categories', action.payload);
         return {
             ...state,
-            categories: action.payload,
+            categories: action.payload.data,
         }
         case FETCH_CHUCKJOKEWITHCATEGORY:
         console.log('FETCH_CHUCKJOKEWITHCATEGORY', action.payload)
           return {
             ...state,
-            joke: action.payload.value,
+            joke: action.payload.data.value,
           }
         default:
         return state
