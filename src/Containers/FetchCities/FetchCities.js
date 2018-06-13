@@ -56,9 +56,9 @@ class FetchCities extends Component {
             population: this.state.population
         }
         console.log('ID: ', id)
-        const cityId = id
         
-        this.props.editCity(cityId, editedCity)
+        
+        this.props.editCity(id, editedCity)
     }
     
 
@@ -67,8 +67,8 @@ class FetchCities extends Component {
             <ul className="citiesList" key={city.id}>
                 <li>{city.name}</li>
                 <li>{city.population}</li>
-                <input type="text" name={city.name} onChange={this.onChange} value={this.state.name}/>
-                <input type="text" name={city.population} onChange={this.onChange} value={this.state.population}/>
+                <input type="text" name="name" onChange={this.onChange} value={this.props.name}/>
+                <input type="text" name="population" onChange={this.onChange} value={this.props.population}/>
                 <button id="editCityButton" onClick={() => this.onSubmit(city.id)}>Save</button>
                 <button id="removeCityButton" onClick={() => this.props.removeCity(city.id)}>Delete</button>
             </ul>

@@ -56,5 +56,3 @@ export const editCity = (id, cityData) => dispatch => {
         payload: result
     }))
 }
-
-
