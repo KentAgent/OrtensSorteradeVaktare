@@ -10,3 +10,6 @@ export const FETCH_CHUCKJOKEWITHCATEGORY = 'FETCH_CHUCKJOKEWITHCATEGORY'
 //Joke actions
 export const FETCH_JOKE = 'FETCH_JOKE'
 export const FETCH_TENJOKES = 'FETCH_TENJOKES'
+
+//Dog actions
+export const FETCH_DOG = 'FETCH_DOG'
