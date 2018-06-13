@@ -1,4 +1,4 @@
-import { FETCH_CATEGORIES, FETCH_CHUCKJOKE, FETCH_SOMEONEELSEJOKE } from '../actions/types'
+import { FETCH_CATEGORIES, FETCH_CHUCKJOKE, FETCH_SOMEONEELSEJOKE, FETCH_CHUCKJOKEWITHCATEGORY } from '../actions/types'
 
 const initialState = {
     joke: '',
@@ -10,7 +10,8 @@ export default function(state = initialState, action) {
       case FETCH_CHUCKJOKE:
         return {
           ...state,
-          joke: action.payload.value.joke
+          joke: action.payload.value.joke,
+          categories: []
         }
       case FETCH_SOMEONEELSEJOKE:
         return {
@@ -21,8 +22,16 @@ export default function(state = initialState, action) {
       console.log('action payload categories', action.payload);
         return {
             ...state,
-            categories: action.payload.value
+            categories: action.payload,
+            joke: ''
         }
+        case FETCH_CHUCKJOKEWITHCATEGORY:
+        console.log('FETCH_CHUCKJOKEWITHCATEGORY', action.payload)
+          return {
+            ...state,
+            joke: action.payload.value,
+            categories: []
+          }
         default:
         return state
     }

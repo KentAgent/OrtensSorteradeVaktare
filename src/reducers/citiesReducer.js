@@ -1,4 +1,4 @@
-import { FETCH_CITIES, NEW_CITY } from '../actions/types'
+import { FETCH_CITIES, NEW_CITY, REMOVE_CITY, EDIT_CITY } from '../actions/types'
 
 const initialState = {
     items: [],
@@ -16,6 +16,17 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 item: action.payload,
+                items: action.payload
+            }
+        case REMOVE_CITY:
+            return {
+                //...state.items.filter(item => item.id !== action.payload.id),
+                ...state,
+                items: action.payload
+            }
+        case EDIT_CITY:
+            return {
+                ...state,
                 items: action.payload
             }
         default:

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './ChuckNorris.css'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchCategories, fetchChuckJoke, fetchSomeOneElsesData } from '../actions/norrisActions'
+import { fetchCategories, fetchChuckJoke, fetchSomeOneElsesData, fetchChuckJokeWithCategory } from '../actions/norrisActions'
 
 class ChuckNorris extends Component {
 
@@ -69,23 +69,27 @@ class ChuckNorris extends Component {
 render() {
 
 
-
   const categoryItems = this.props.categories.map(category => (
       <ul className="categoryList" key={category}>
-          <li>{category}</li>
+          <button id="categoryButton" onClick={() => this.props.fetchChuckJokeWithCategory(category)}>{category}</button>
       </ul>
   ))
+//          <li>{category}</li>
 
+//          <button onClick={this.props.fetchCategories}>Fetch Chuck info on category</button>
 
 
     return (
         <div className="FetchCities">
           <div>
+            <img src={require('./chucknorris_logo.png')}></img>
+          </div>
+          <div>
             <button className="nextChuck" onClick={this.props.fetchChuckJoke}>Check for more awsome cool verified information about Chuck</button>
           </div>
           <div>
-            <input id ='firstName' placeholder="Förnamn"></input>
-            <input id = 'lastName' placeholder="Efternamn"></input>
+            <input id ="firstName" placeholder="Förnamn"></input>
+            <input id = "lastName" placeholder="Efternamn"></input>
           </div>
           <div>
             <button className="nextSomeOneElse" onClick={this.props.fetchSomeOneElsesData}>Check for more awsome cool verified information about someone else</button>
@@ -93,9 +97,11 @@ render() {
           <div>
             <button className="showCategories" onClick={this.props.fetchCategories}>Show categories for jokes</button>
           </div>
-          {categoryItems}
+          <div id="catgegoryContainer">
+            {categoryItems}
+          </div>
           {console.log(this.props.chuckJoke)}
-            <p>{this.props.chuckJoke}</p>
+            <p dangerouslySetInnerHTML={{ __html: this.props.chuckJoke }}></p>
         </div>
     )
   }
@@ -103,14 +109,15 @@ render() {
 }
 
 
-ChuckNorris.PropTypes = {
+ChuckNorris.propTypes = {
     fetchCategories: PropTypes.func.isRequired,
-    categories: PropTypes.object.isRequired,
+    categories: PropTypes.array.isRequired,
 
     fetchChuckJoke: PropTypes.func.isRequired,
     chuckJoke: PropTypes.string.isRequired,
 
-    fetchSomeOneElsesData: PropTypes.func.isRequired
+    fetchSomeOneElsesData: PropTypes.func.isRequired,
+    fetchChuckJokeWithCategory: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -119,4 +126,4 @@ const mapStateToProps = state => ({
     //someOneElseJoke: state.categories.someOneElseJoke
 })
 
-export default connect(mapStateToProps, {fetchCategories, fetchChuckJoke, fetchSomeOneElsesData})(ChuckNorris)
+export default connect(mapStateToProps, {fetchCategories, fetchChuckJoke, fetchSomeOneElsesData, fetchChuckJokeWithCategory})(ChuckNorris)

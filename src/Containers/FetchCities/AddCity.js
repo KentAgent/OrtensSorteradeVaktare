@@ -29,6 +29,11 @@ class AddCity extends Component {
         }
 
         this.props.addCity(city)
+
+        this.setState({
+            name: '',
+            population: ''
+        })
     }
 
     render() {
@@ -37,11 +42,11 @@ class AddCity extends Component {
                 <h1>Add City</h1>
                 <form onSubmit={this.onSubmit}>
                     <div>
-                        <label>City Name: </label><br />
-                        <input type="text" name="name" onChange={this.onChange} value={this.state.cityName}/>
+                        <label>City Name:</label><br />
+                        <input type="text" name="name" onChange={this.onChange} value={this.state.name}/>
                     </div>
                     <div>
-                        <label>Population: </label><br />
+                        <label>Population:</label><br />
                         <input type="text" name="population" onChange={this.onChange} value={this.state.population}/>
                     </div>
                     <br />
@@ -52,7 +57,7 @@ class AddCity extends Component {
     }
 }
 
-AddCity.PropTypes = {
+AddCity.propTypes = {
     addCity: PropTypes.func.isRequired
 }
 

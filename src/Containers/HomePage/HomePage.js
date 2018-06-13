@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import WillesComponent from '../../WillesComponent/WillesComponent'
 import { Route } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import FetchCities from '../FetchCities/FetchCities'
 import Firebase from '../../Firebase/Firebase'
 import JokeComponent from '../../JokeComponent/JokeComponent'
