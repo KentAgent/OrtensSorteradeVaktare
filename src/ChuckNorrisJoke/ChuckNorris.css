@@ -1,3 +1,19 @@
-/*.nextChuck:hover{
+#catgegoryContainer {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+#categoryButton {
+  background-color: orange;
+  transition: transform 1s;
+  box-shadow: 0.3px 0.3px 1px;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  width: 80%;
+  transition: 0.5s;
 
-}*/
+}
+#categoryButton:hover {
+  transform: rotate(36deg);
+}
