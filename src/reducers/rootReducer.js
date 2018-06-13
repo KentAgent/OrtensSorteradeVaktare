@@ -8,6 +8,6 @@ import dogReducer from './dogReducer'
 export default combineReducers({
     cities: citiesReducer,
     chuckReducer: norrisReducer,
-    hahasofunnyReducer: jokeReducer
+    hahasofunnyReducer: jokeReducer,
     doggoReducer: dogReducer
 })
