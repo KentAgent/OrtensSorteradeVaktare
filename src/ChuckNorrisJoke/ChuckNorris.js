@@ -84,7 +84,7 @@ render() {
 
 
     return (
-        <div className="FetchCities">
+        <div className="chuckContainer">
           <div>
             <img src={require('./chucknorris_logo.png')}></img>
           </div>
