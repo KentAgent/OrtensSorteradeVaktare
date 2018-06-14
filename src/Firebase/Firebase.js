@@ -1,6 +1,7 @@
 import React from 'react'
 
 var firebase = require('firebase')
+//HALLÅ BRÖDER!
 var config = {
 apiKey: "AIzaSyAslmo3QM6YEdmk9z_eyjF3jCoj0Z4QBew",
 authDomain: "jsprojekt1-6cf97.firebaseapp.com",
@@ -44,14 +45,11 @@ getChat(){
   }.bind(this));
 }
 
-
   componentDidMount() {
     this.update();
     //this.getChat();
     //this.getFirebaseList();
   }
-
-
 
    writeOnOurWall(){
       var name = this.state.value;
@@ -62,8 +60,6 @@ getChat(){
       message: message
     });
   }
-
-
 
   update(){
     var database = firebase.database();
