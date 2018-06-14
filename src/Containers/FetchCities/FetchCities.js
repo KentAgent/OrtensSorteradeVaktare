@@ -11,14 +11,12 @@ class FetchCities extends Component {
         this.props.fetchCities()
     }
 
-    // When component recieves new property, this will run
+    // This method is called when props are passed to the Component instance.
     componentWillReceiveProps(nextProps) {
         if (nextProps.newCity) {
             this.props.cities.unshift(nextProps.newCity)
         }
     }
-
-    
 
     // componentDidUpdate(removedProps) {
     //     const cities = [...this.props.cities]
@@ -69,7 +67,6 @@ class FetchCities extends Component {
                 <li>{city.name}</li>
                 <li>{city.population}</li>
                 
-                
                 <div className="EditInput">
                     <label>Edit City Name:</label>
                     <input type="text" name="name" onChange={this.onChange} value={this.props.name}/>
@@ -99,7 +96,6 @@ FetchCities.propTypes = {
     cities: PropTypes.array.isRequired,
     newCity: PropTypes.object,
     removeCity: PropTypes.func.isRequired,
-    removedCity: PropTypes.object,
     editCity: PropTypes.func.isRequired
 }
 
