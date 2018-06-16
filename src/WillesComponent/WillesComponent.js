@@ -2,6 +2,8 @@ import React from 'react'
 import './WillesComponent.css'
 import Lightbox from "./LightboxComponent"
 import FileSaver from 'file-saver'
+import { PropTypes } from 'prop-types'
+import { connect } from 'react-redux'
 
 import {fetchDog, downloadDog, dogThumbNailClicked} from '../actions/dogActions'
 
@@ -24,12 +26,13 @@ class willesComponent extends React.Component {
   }
 
   getImg(){
+
+    this.props.fetchDog();
     fetch('https://dog.ceo/api/breeds/image/random')
-    .then(response =>{
+    .then(response => {
       return response.json();
     })
-    .then(result =>{
-      console.log(result);
+    .then(result => {
       var newImageArray = this.state.imagesArray;
       var img = result.message
       newImageArray.push(img);
@@ -38,6 +41,7 @@ class willesComponent extends React.Component {
         imagesArray : newImageArray
       })
     })
+
   }
 
   componentDidMount(){
@@ -45,7 +49,6 @@ class willesComponent extends React.Component {
   }
 
   downloadImg(){
-    var reader = new FileReader();
     fetch('https://cors-anywhere.herokuapp.com/' + this.state.img_URL)
     .then(function(response){
       return response.blob();
@@ -60,21 +63,27 @@ class willesComponent extends React.Component {
       isOpen: true,
       photoIndex: index
     })
-    {console.log(this.state.imagesArray, this.state.isOpen, this.state.photoIndex);}
+    console.log(this.state.imagesArray, this.state.isOpen, this.state.photoIndex);
     this.foo.updateState(true, index);
   }
 
   render(){
     const imgThumbNails = this.state.imagesArray.map((img, index) => {
-        return <img src={img} className="thumbNail" key={index} onClick={(event) => this.thumbNailClicked(event, index)}/>
+        return <img src={img} className="thumbNail" key={index} alt={img} onClick={(event) => this.thumbNailClicked(event, index)}/>
     })
       return (
-        <div>
+        <div class="dogPage">
           <h1>Tjo Dog</h1>
           <section><button className="refreshBtn" onClick={this.getImg}>New Dog</button>
             </section>
           <div className="imgWrapper">
-            <section><img className="imgBox" src={this.state.img_URL} alt="Dog img"></img></section>
+
+          {/* Normal State
+            <section><img className="imgBox" src={this.state.img_URL} alt="Dog img"></img></section>*/
+          }
+          {/* Redux State */}
+            <section><img className="imgBox" src={this.props.dogImage} alt="Dog img"></img></section>
+
             <button className="refreshBtn" disabled={!this.state.img_URL} onClick={this.downloadImg}>Download</button>
             <div className ="thumbNailContainer">{imgThumbNails}</div>
           </div>
@@ -84,4 +93,20 @@ class willesComponent extends React.Component {
   }
 }
 
-export default willesComponent;
+willesComponent.propTypes = {
+    fetchDog: PropTypes.func.isRequired,
+    dogImage: PropTypes.string.isRequired,
+    doggoImageArray: PropTypes.string.isRequired,
+    downloadDog: PropTypes.func.isRequired,
+    dogThumbNailClicked: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+    dogImage: state.doggoReducer.img_URL,
+    doggoImageArray: state.doggoReducer.imagesArray
+    // categories: state.chuckReducer.categories,
+    // chuckJoke: state.chuckReducer.joke,
+    //someOneElseJoke: state.categories.someOneElseJoke
+})
+
+export default connect(mapStateToProps, {fetchDog, downloadDog, dogThumbNailClicked})(willesComponent)
