@@ -9,9 +9,6 @@ import Dog1 from './dog1.jpeg'
 import Dog2 from './dog2.jpg'
 import Dog3 from './dog3.jpg'
 
-const download = require('image-downloader')
-
-
 class willesComponent extends React.Component {
 
   constructor(props){
