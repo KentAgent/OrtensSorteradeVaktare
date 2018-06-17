@@ -7,12 +7,12 @@ import { fetchCities, removeCity, editCity } from '../../actions/citiesActions'
 
 class FetchCities extends Component {
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.props.fetchCities()
     }
 
     // This method is called when props are passed to the Component instance.
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.newCity) {
             this.props.cities.unshift(nextProps.newCity)
         }
@@ -60,13 +60,11 @@ class FetchCities extends Component {
         this.props.editCity(id, editedCity)
     }
     
-
     render() {
         const citiesItems = this.props.cities.map(city => (
             <ul className="citiesList" key={city.id}>
                 <li>{city.name}</li>
                 <li>{city.population}</li>
-                
                 <div className="EditInput">
                     <label>Edit City Name:</label>
                     <input type="text" name="name" onChange={this.onChange} value={this.props.name}/>
@@ -78,7 +76,6 @@ class FetchCities extends Component {
                 <button id="editCityButton" onClick={() => this.onSubmit(city.id)}>Save</button>
                 <button id="removeCityButton" onClick={() => this.props.removeCity(city.id)}>Delete</button>
             </ul>
-            
         ))
 
         return (
