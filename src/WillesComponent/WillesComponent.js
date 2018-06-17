@@ -72,7 +72,7 @@ class willesComponent extends React.Component {
         return <img src={img} className="thumbNail" key={index} alt={img} onClick={(event) => this.thumbNailClicked(event, index)}/>
     })
       return (
-        <div class="dogPage">
+        <div className="dogPage">
           <h1>Tjo Dog</h1>
           <section><button className="refreshBtn" onClick={this.getImg}>New Dog</button>
             </section>
