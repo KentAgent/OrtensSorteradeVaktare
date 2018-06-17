@@ -1,4 +1,7 @@
 import React from 'react'
+import { getChat } from '../actions/firebaseActions'
+import { PropTypes } from 'prop-types'
+import { connect } from 'react-redux'
 
 var firebase = require('firebase')
 //HALLÅ BRÖDER!
@@ -28,26 +31,30 @@ class Firebase extends React.Component{
       this.deletePost = this.deletePost.bind(this);
   }
 
-getChat(){
-    var database = firebase.database();
-    database.ref().on('value', function(element){
-    element.forEach(function(child){
-      var wall = child.val();
-      console.log(Object.entries(wall), 'funkar');
-      Object.keys(wall);
-      console.log(Object.keys(wall), 'yo');
-      this.setState({firebase: Object.entries(wall)})
 
-      // var name = child.val().forEach(function(child){
-      //
-      // });
-    }.bind(this));
-  }.bind(this));
-}
+
+ getChat(){
+   this.props.getChat();
+ }
+//     var database = firebase.database();
+//     database.ref().on('value', function(element){
+//     element.forEach(function(child){
+//       var wall = child.val();
+//       console.log(Object.entries(wall), 'funkar');
+//       Object.keys(wall);
+//       console.log(Object.keys(wall), 'yo');
+//       this.setState({firebase: Object.entries(wall)})
+//
+//       // var name = child.val().forEach(function(child){
+//       //
+//       // });
+//     }.bind(this));
+//   }.bind(this));
+// }
 
   componentDidMount() {
     this.update();
-    //this.getChat();
+    this.props.getChat();
     //this.getFirebaseList();
   }
 
@@ -117,4 +124,15 @@ deletePost(event, index){
    }
 }
 
-export default Firebase;
+
+
+
+// Firebase.propTypes = {
+//
+// }
+
+const mapStateToProps = state => ({
+    fbWall: state.firebaseReducer.firebase
+})
+
+export default connect(mapStateToProps, {getChat})(Firebase)

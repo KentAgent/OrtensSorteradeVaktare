@@ -16,3 +16,6 @@ export const FETCH_TENJOKES = 'FETCH_TENJOKES'
 export const FETCH_DOG = 'FETCH_DOG'
 export const DOWNLOAD_DOG = 'DOWNLOAD_DOG'
 export const DOG_CLICK_THUMBNAIL = 'DOG_CLICK_THUMBNAIL'
+
+//Firebase Actions
+export const GET_CHAT = 'GET_CHAT'
